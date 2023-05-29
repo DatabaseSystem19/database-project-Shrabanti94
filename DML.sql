@@ -44,19 +44,21 @@ INSERT INTO user177 (user_id, name, email, phone)VALUES(6, 'Dulal Arman', 'dulal
 
 CREATE TABLE package177 (
   package_id number(20),
+  admin_id number(20),
   name VARCHAR(100) NOT NULL,
   description VARCHAR(200) NOT NULL,
   price DECIMAL(10, 2) NOT NULL,
-  primary key(package_id)
+  primary key(package_id),
+  FOREIGN KEY (admin_id) REFERENCES admin177 (admin_id)
 );
 
 
-INSERT INTO package177 (package_id, name, description, price)VALUES(1, 'Coxs Bazar Tour', 'Explore the longest natural sea beach', '5000.00');
-INSERT INTO package177 (package_id, name, description, price)VALUES(2, 'Sundarbans Tour', 'Discover the largest mangrove forest', '8000.00');
-INSERT INTO package177 (package_id, name, description, price)VALUES(3, 'Sylhet Tea Garden Tour', 'Experience the beauty of tea gardens', '6000.00');
-INSERT INTO package177 (package_id, name, description, price)VALUES(4, 'Rangamati Lake Tour', 'Enjoy the scenic beauty of lakes', '7000.00');
-INSERT INTO package177 (package_id, name, description, price)VALUES(5, 'Saint Martin Island Tour', 'Visit the only coral island in Bangladesh', '4000.00');
-INSERT INTO package177 (package_id, name, description, price)VALUES(6, 'Bandarban Hill Track Tour', 'Explore the hills and tribal culture', '5500.00');
+INSERT INTO package177 (package_id,admin_id, name, description, price)VALUES(1,1, 'Coxs Bazar Tour', 'Explore the longest natural sea beach', '5000.00');
+INSERT INTO package177 (package_id,admin_id, name, description, price)VALUES(2,2, 'Sundarbans Tour', 'Discover the largest mangrove forest', '8000.00');
+INSERT INTO package177 (package_id,admin_id, name, description, price)VALUES(3,3, 'Sylhet Tea Garden Tour', 'Experience the beauty of tea gardens', '6000.00');
+INSERT INTO package177 (package_id,admin_id, name, description, price)VALUES(4,4, 'Rangamati Lake Tour', 'Enjoy the scenic beauty of lakes', '7000.00');
+INSERT INTO package177 (package_id,admin_id, name, description, price)VALUES(5,5, 'Saint Martin Island Tour', 'Visit the only coral island in Bangladesh', '4000.00');
+INSERT INTO package177 (package_id,admin_id, name, description, price)VALUES(6,6, 'Bandarban Hill Track Tour', 'Explore the hills and tribal culture', '5500.00');
 
 
 CREATE TABLE booking177 (
@@ -86,22 +88,25 @@ INSERT INTO booking177 (booking_id,user_id, package_id, start_date, end_date, bo
 CREATE TABLE issue177 (
   issue_id number(20),
   booking_id number(30),
+  admin_id number(20),
   user_id number(20),
   description VARCHAR(200) NOT NULL,
   issue_date VARCHAR(10),
   status VARCHAR(20) NOT NULL,
   primary key(issue_id),
   FOREIGN KEY (booking_id) REFERENCES booking177 (booking_id),
-  FOREIGN KEY (user_id) REFERENCES user177 (user_id)
+  FOREIGN KEY (user_id) REFERENCES user177 (user_id),
+  FOREIGN KEY (admin_id) REFERENCES admin177 (admin_id)
 );
 
 
-INSERT INTO issue177 (issue_id, booking_id, user_id, description, issue_date, status)VALUES(1, 1, 1, 'I need to reschedule my booking', '2023-04-10', 'OPEN');
-INSERT INTO issue177 (issue_id, booking_id, user_id, description, issue_date, status)VALUES(2, 2, 2, 'I have a special request for my booking', '2023-04-20', 'CLOSED');
-INSERT INTO issue177 (issue_id, booking_id, user_id, description, issue_date, status)VALUES(3, 3, 3, 'I need to cancel my booking', '2023-06-01', 'OPEN');
-INSERT INTO issue177 (issue_id, booking_id, user_id, description, issue_date, status)VALUES(4, 4, 4, 'I have a question about my booking', '2023-07-01', 'OPEN');
-INSERT INTO issue177 (issue_id, booking_id, user_id, description, issue_date, status)VALUES(5, 5, 5, 'I need assistance during my tour', '2023-08-22', 'OPEN');
-INSERT INTO issue177 (issue_id, booking_id, user_id, description, issue_date, status)VALUES(6, 6, 6, 'I have a complaint regarding my booking', '2023-09-01','OPEN');
+
+INSERT INTO issue177 (issue_id, booking_id,admin_id, user_id, description, issue_date, status)VALUES(1, 1,1, 1, 'I need to reschedule my booking', '2023-04-10', 'OPEN');
+INSERT INTO issue177 (issue_id, booking_id,admin_id, user_id, description, issue_date, status)VALUES(2, 2,2, 2, 'I have a special request for my booking', '2023-04-20', 'CLOSED');
+INSERT INTO issue177 (issue_id, booking_id,admin_id, user_id, description, issue_date, status)VALUES(3, 3,3, 3, 'I need to cancel my booking', '2023-06-01', 'OPEN');
+INSERT INTO issue177 (issue_id, booking_id,admin_id, user_id, description, issue_date, status)VALUES(4, 4,4, 4, 'I have a question about my booking', '2023-07-01', 'OPEN');
+INSERT INTO issue177 (issue_id, booking_id,admin_id, user_id, description, issue_date, status)VALUES(5, 5,5, 5, 'I need assistance during my tour', '2023-08-22', 'OPEN');
+INSERT INTO issue177 (issue_id, booking_id,admin_id, user_id, description, issue_date, status)VALUES(6, 6,6, 6, 'I have a complaint regarding my booking', '2023-09-01','OPEN');
 
 
 CREATE TABLE payment_method177 (
