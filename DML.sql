@@ -209,10 +209,10 @@ SELECT * FROM payment_method177 WHERE NAME LIKE '%a%';//String operations
 
 
 select * from booking177 natural join payment177 where booking_id='2';//Join operations
-select issue_date,payment_date from booking177 left outer join payment177 using(booking_id);
-select issue_date,payment_date from booking177 right outer join payment177 using(booking_id);
-select issue_date,payment_date from booking177 full outer join payment177 using(booking_id);
-select issue_date,payment_date from booking177 left outer join payment177 on booking177.booking_id=payment177.booking_id;
+select name,description from payment_method177 left outer join payment177 using(payment_method_id);
+select name,description from payment_method177 right outer join payment177 using(payment_method_id);
+select name,description from payment_method177 full outer join payment177 using(payment_method_id);
+select name,description from payment_method177 left outer join payment177 on payment_method177.payment_method_id=payment177.payment_method_id;
 
 
 
