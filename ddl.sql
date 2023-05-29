@@ -32,10 +32,12 @@ CREATE TABLE user177 (
 
 CREATE TABLE package177 (
   package_id number(20),
+  admin_id number(20),
   name VARCHAR(100) NOT NULL,
   description VARCHAR(200) NOT NULL,
   price DECIMAL(10, 2) NOT NULL,
-  primary key(package_id)
+  primary key(package_id),
+  FOREIGN KEY (admin_id) REFERENCES admin177 (admin_id)
 );
 
 
@@ -62,13 +64,15 @@ CREATE TABLE booking177 (
 CREATE TABLE issue177 (
   issue_id number(20),
   booking_id number(30),
+  admin_id number(20),
   user_id number(20),
   description VARCHAR(200) NOT NULL,
   issue_date VARCHAR(10),
   status VARCHAR(20) NOT NULL,
   primary key(issue_id),
   FOREIGN KEY (booking_id) REFERENCES booking177 (booking_id),
-  FOREIGN KEY (user_id) REFERENCES user177 (user_id)
+  FOREIGN KEY (user_id) REFERENCES user177 (user_id),
+  FOREIGN KEY (admin_id) REFERENCES admin177 (admin_id)
 );
 
 
