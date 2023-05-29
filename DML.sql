@@ -175,13 +175,13 @@ select * from payment177,max_amount where payment177.amount=max_amount.val;//Wit
 select count(*) from admin177;//We count how many row exist in dept table.
 select count(amount) as amount_payment from payment177;//We also give alias name to any output in select command.
 
-select count(distinct amount) as amount_payment from payment177;//We can count distinct department name in dept table.
+select count(distinct amount) as amount_payment from payment177;//We can count distinct rows name in table.
 select avg(amount) from payment177;
-select sum(amount) from payment177;//We can count average and total no. of students in dept table.
+select sum(amount) from payment177;//We can count average and total a columnn table.
 
 
 select max(amount) from payment177;
-select min(amount) from payment177;//We can find max and min no. of students of any department from dept table.
+select min(amount) from payment177;//We can find max and min  from  table.
 
 
 select payment_date,avg(amount) from payment177 group by payment_date;//Group by and Having
