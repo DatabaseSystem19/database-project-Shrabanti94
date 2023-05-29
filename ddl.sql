@@ -109,7 +109,7 @@ set pagesize 200
 set linesize 300
 
 
-alter table booking177 add location char(20);//Add column in the table
-alter table booking177 modify location varchar(23);//Modify column definition in the table
-alter table booking177 rename column location to location2;//Rename the column name
-alter table booking177 drop column location2;//Drop the column from table
+alter table booking177 add location char(20);--Add column in the table
+alter table booking177 modify location varchar(23);--Modify column definition in the table
+alter table booking177 rename column location to location2;--Rename the column name
+alter table booking177 drop column location2;--Drop the column from table
