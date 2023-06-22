@@ -87,3 +87,15 @@ END;
 
 drop procedure proc_1;
 drop function func_1;
+
+
+SET SERVEROUTPUT ON
+CREATE OR REPLACE TRIGGER tri
+BEFORE delete ON booking177 
+REFERENCING OLD AS o NEW AS n
+FOR EACH ROW
+BEGIN
+delete from package177 where package_id=:o.package_id;
+delete from user177 where user_id=:o.user_id;
+END;
+/
